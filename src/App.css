@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Chronicle-Bold';
+  src: url('./fonts/Chronicle_Disp_Cond_Bold.otf') format('opentype');
+}
+
 html {
   margin: 0;
   padding: 0;
@@ -12,11 +17,19 @@ body {
 
   width: 100%;
   height: 100%;
+
+  background: linear-gradient(180deg, #05101f 100%, rgba(0,0,0,.57605) 0);
+  font-family: 'Chronicle-Bold';
+  color: white;
 }
 
 body header {
   width: 100%;
   height: 15vh;
 
-  background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-bottom: 1px solid rgba(255, 255, 255, .7);
 }
