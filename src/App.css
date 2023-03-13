@@ -20,7 +20,6 @@ body {
 
   background: linear-gradient(180deg, #05101f 100%, rgba(0,0,0,.57605) 0);
   font-family: 'Chronicle-Bold';
-  color: white;
 }
 
 body div#home-screen {
@@ -37,4 +36,43 @@ body div#home-screen {
   align-items: center;
 
   border-bottom: 1px solid rgba(255, 255, 255, .7);
+}
+
+header h1 {
+  color: #8c8681;
+}
+
+#home-screen footer {
+  width: 100%;
+  height: 10vh;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  border-top: 1px solid rgba(255, 255, 255, .7);
+}
+
+footer input {
+  padding: .9vh;
+
+  border: none;
+  border-radius: 1vh;
+}
+
+footer button {
+  padding: 0;
+
+  width: 15%;
+  height: 70%;
+
+  background: transparent;
+  border: none;
+}
+
+button ion-icon {
+  width: 100%;
+  height: 100%;
+
+  color: white;
 }
