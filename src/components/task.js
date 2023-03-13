@@ -9,15 +9,32 @@ function ArrowsBox(props) {
     );
 }
 
+function CheckedIcon(props) {
+    return (
+        <ion-icon></ion-icon>
+    );
+}
+
 class Task extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            title: this.props.title,
+            isChecking: this.props.isChecking,
+        };
+    }
+
     render() {
         return (
             <section class="task-item">
                 <ArrowsBox/>
 
-                <h3>{this.props.title}</h3>
+                <h3>{this.state.title}</h3>
 
-                <input type="checkbox"/>
+                <CheckedIcon
+                    isChecking={this.state.isChecking}
+                />
             </section>
         );
     }
