@@ -4,7 +4,7 @@ class Header extends Component {
     render() {
         return (
             <header>
-                <h1>Nb= {this.props.tasksValidate}/{this.props.tasksCount}</h1>
+                <h1>Task progression = {this.props.tasksValidate}/{this.props.tasksCount}</h1>
             </header>
         );
     }
