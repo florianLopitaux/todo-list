@@ -23,7 +23,12 @@ body {
   color: white;
 }
 
-body header {
+body div#home-screen {
+  width: 100%;
+  height: 100%;
+}
+
+#home-screen header {
   width: 100%;
   height: 15vh;
 
