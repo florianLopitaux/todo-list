@@ -6,7 +6,10 @@ import Header from './components/header.js';
 
 function App() {
   return (
-    <Header/>
+    <Header
+      tasksValidate={3}
+      tasksCount={7}
+    />
   );
 }
 
