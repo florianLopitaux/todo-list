@@ -11,32 +11,24 @@ function ArrowsBox(props) {
 
 function ValidateCheckbox(props) {
         if (props.isChecked) {
-            return <input type="checkbox" checked/>
+            return <input type="checkbox" onChange={props.onClick} checked/>
 
         } else {
-            return <input type="checkbox"/>
+            return <input type="checkbox" onChange={props.onClick}/>
         }
 }
 
 class Task extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            title: this.props.title,
-            isChecked: this.props.isChecked,
-        };
-    }
-
     render() {
         return (
             <section class="task-item">
                 <ArrowsBox/>
 
-                <h3>{this.state.title}</h3>
+                <h3>{this.props.title}</h3>
 
                 <ValidateCheckbox
-                    isChecked={this.state.isChecked}
+                    isChecked={this.props.isChecked}
+                    onClick={this.props.onClick}
                 />
             </section>
         );

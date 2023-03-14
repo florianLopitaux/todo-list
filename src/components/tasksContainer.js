@@ -20,10 +20,26 @@ class TasksContainer extends Component {
         }
     }
 
+    handleTaskCheckClick(position) {
+        let newTasks = this.state.tasks.slice();
+        newTasks[position].isChecked = !newTasks[position].isChecked;
+
+        this.setState({
+            tasks: newTasks,
+        })
+    }
+
     render() {
+        const taskList = this.state.tasks.map((item, index) => <Task
+                                                                    key={index}
+                                                                    title={item.title}
+                                                                    isChecked={item.isChecked}
+                                                                    onClick={() => this.handleTaskCheckClick(index)} 
+                                                                />);
+
         return (
             <main>
-                {this.state.tasks.map(item => <Task title={item.title} isChecked={item.isChecked} />)}
+                {taskList}
             </main>
         );
     }
