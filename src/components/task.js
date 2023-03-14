@@ -9,10 +9,13 @@ function ArrowsBox(props) {
     );
 }
 
-function CheckedIcon(props) {
-    return (
-        <ion-icon></ion-icon>
-    );
+function ValidateCheckbox(props) {
+        if (props.isChecked) {
+            return <input type="checkbox" checked/>
+
+        } else {
+            return <input type="checkbox"/>
+        }
 }
 
 class Task extends Component {
@@ -21,7 +24,7 @@ class Task extends Component {
 
         this.state = {
             title: this.props.title,
-            isChecking: this.props.isChecking,
+            isChecked: this.props.isChecked,
         };
     }
 
@@ -32,8 +35,8 @@ class Task extends Component {
 
                 <h3>{this.state.title}</h3>
 
-                <CheckedIcon
-                    isChecking={this.state.isChecking}
+                <ValidateCheckbox
+                    isChecked={this.state.isChecked}
                 />
             </section>
         );

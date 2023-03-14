@@ -2,36 +2,28 @@ import { Component } from "react";
 import Task from "./task.js";
 
 class TasksContainer extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            tasks: [
+                {'title': "1. Idée", 'isChecked': true},
+                {'title': "2. Marché", 'isChecked': false},
+                {'title': "3. Wireframe", 'isChecked': true},
+                {'title': "4. Design", 'isChecked': true},
+                {'title': "5. Landingpage", 'isChecked': false},
+                {'title': "6. Développement", 'isChecked': false},
+                {'title': "7. Publish", 'isChecked': false},
+                {'title': "8. Pub", 'isChecked': true},
+                {'title': "9. Feedback", 'isChecked': false},
+            ],
+        }
+    }
+
     render() {
         return (
             <main>
-                <Task
-                    title={"1. Idée"}
-                />
-                <Task
-                    title={"2. Marché"}
-                />
-                <Task
-                    title={"3. Wireframe"}
-                />
-                <Task
-                    title={"4. Design"}
-                />
-                <Task
-                    title={"5. Landingpage"}
-                />
-                <Task
-                    title={"6. Développement"}
-                />
-                <Task
-                    title={"7. Publish"}
-                />
-                <Task
-                    title={"8. Pub"}
-                />
-                <Task
-                    title={"9. Feedback"}
-                />
+                {this.state.tasks.map(item => <Task title={item.title} isChecked={item.isChecked} />)}
             </main>
         );
     }
