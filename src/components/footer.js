@@ -1,5 +1,3 @@
-import { Component } from "react";
-
 function SearchBar(props) {
     return (
         <input type="text" placeholder="Search..."/>
@@ -14,15 +12,16 @@ function AddTaskButton(props) {
     );
 }
 
-class Footer extends Component {
-    render() {
-        return (
-            <footer>
-                <SearchBar/>
-                <AddTaskButton/>
-            </footer>
-        );
-    }
-}
+export default function Footer(props) {
+    // state
 
-export default Footer;
+    // actions
+    
+    // render
+    return (
+        <footer>
+            <SearchBar/>
+            <AddTaskButton/>
+        </footer>
+    );
+}

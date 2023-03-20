@@ -149,7 +149,17 @@ main section.task-item {
   align-items: center;
 }
 
-#arrows-container ion-icon {
+#arrows-container button {
   width: 100%;
-  height: 40%;
+  height: 100%;
+
+  background: transparent;
+  border: none;
+}
+
+#arrows-container button ion-icon {
+  width: 100%;
+  height: 100%;
+
+  color: black;
 }

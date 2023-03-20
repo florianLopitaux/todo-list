@@ -1,13 +1,12 @@
-import { Component } from "react";
+export default function Header(props) {
+    //state
 
-class Header extends Component {
-    render() {
-        return (
-            <header>
-                <h1>Task progression = {this.props.tasksValidate} / {this.props.tasksCount}</h1>
-            </header>
-        );
-    }
+    // actions
+
+    // render
+    return (
+        <header>
+            <h1>Task progression = {props.tasksValidate()} / {props.tasksCount}</h1>
+        </header>
+    );
 }
-
-export default Header;

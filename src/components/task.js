@@ -1,38 +1,17 @@
-import { Component } from "react";
+export default function Task(props) {
+    // actions
 
-function ArrowsBox(props) {
+    // render
     return (
-        <div id="arrows-container">
-            <ion-icon name="arrow-up-circle-outline"></ion-icon>
-            <ion-icon name="arrow-down-circle-outline"></ion-icon>
-        </div>
+        <section className="task-item">
+            <div id="arrows-container">
+                <button onClick={props.onArrowUpClick}><ion-icon name="arrow-up-circle-outline"></ion-icon></button>
+                <button onClick={props.onArrowDownClick}><ion-icon name="arrow-down-circle-outline"></ion-icon></button>
+            </div>
+
+            <h3>{props.title}</h3>
+
+            <input type="checkbox" onChange={props.handleTaskCheckChange} checked={props.isChecked}/>
+        </section>
     );
 }
-
-function ValidateCheckbox(props) {
-        if (props.isChecked) {
-            return <input type="checkbox" onChange={props.onClick} checked/>
-
-        } else {
-            return <input type="checkbox" onChange={props.onClick}/>
-        }
-}
-
-class Task extends Component {
-    render() {
-        return (
-            <section class="task-item">
-                <ArrowsBox/>
-
-                <h3>{this.props.title}</h3>
-
-                <ValidateCheckbox
-                    isChecked={this.props.isChecked}
-                    onClick={this.props.onClick}
-                />
-            </section>
-        );
-    }
-}
-
-export default Task;
