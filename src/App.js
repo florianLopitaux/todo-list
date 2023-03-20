@@ -20,9 +20,10 @@ export default function App() {
       {'title': "8. Pub", 'isChecked': true},
       {'title': "9. Feedback", 'isChecked': false},
   ]);
-  
 
-  // actions
+  const [tasksDisplay, setTasksDisplay] = useState(tasks.slice());
+
+  // Header actions
   const computeTaskValidate = () => {
     let taskValidateCount = 0;
 
@@ -35,6 +36,7 @@ export default function App() {
     return taskValidateCount;
   }
 
+  // Task actions
   const handleTaskCheckChange = (position) => {
       let newTasks = tasks.slice();
       newTasks[position].isChecked = !newTasks[position].isChecked;
@@ -67,7 +69,7 @@ export default function App() {
       />
 
       <main>
-        {tasks.map((item, index) => <Task
+        {tasksDisplay.map((item, index) => <Task
                                         key={index}
                                         title={item.title}
                                         isChecked={item.isChecked}
@@ -77,7 +79,10 @@ export default function App() {
                                     />)}
       </main>
 
-      <Footer/>
+      <Footer
+        tasks={tasks}
+        setTasksDisplay={setTasksDisplay}
+      />
     </div>
   );
 }

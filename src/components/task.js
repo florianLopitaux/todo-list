@@ -1,6 +1,4 @@
 export default function Task(props) {
-    // actions
-
     // render
     return (
         <section className="task-item">
