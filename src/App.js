@@ -23,49 +23,12 @@ export default function App() {
 
   const [tasksDisplay, setTasksDisplay] = useState(tasks.slice());
 
-  // Header actions
-  const computeTaskValidate = () => {
-    let taskValidateCount = 0;
-
-    tasks.forEach(element => {
-      if (element.isChecked) {
-        taskValidateCount++;
-      }
-    })
-
-    return taskValidateCount;
-  }
-
-  // Task actions
-  const handleTaskCheckChange = (position) => {
-      let newTasks = tasks.slice();
-      newTasks[position].isChecked = !newTasks[position].isChecked;
-
-      setTasks(newTasks);
-  };
-
-  const handleArrowClick = (position, moveVelocity) => {
-      if (position + moveVelocity >= tasks.length || position + moveVelocity < 0) {
-        return;
-      }
-
-      let newTasks = tasks.slice();
-      
-      // swap elements
-      const tempTask = newTasks[position];
-      newTasks[position] = newTasks[position + moveVelocity];
-      newTasks[position + moveVelocity] = tempTask;
-
-      setTasks(newTasks);
-  }
-
 
   // render
   return (
     <div id='home-screen'>
       <Header
-        tasksValidate={() => computeTaskValidate()}
-        tasksCount={tasks.length}
+        tasks={tasks}
       />
 
       <main>
@@ -73,9 +36,10 @@ export default function App() {
                                         key={index}
                                         title={item.title}
                                         isChecked={item.isChecked}
-                                        handleTaskCheckChange={() => handleTaskCheckChange(index)}
-                                        onArrowUpClick={() => handleArrowClick(index, -1)}
-                                        onArrowDownClick={() => handleArrowClick(index, 1)}
+                                        position={index}
+                                        tasks={tasks}
+                                        setTasks={setTasks}
+                                        setTasksDisplay={setTasksDisplay}
                                     />)}
       </main>
 

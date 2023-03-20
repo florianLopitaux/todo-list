@@ -19,7 +19,7 @@ export default function Footer(props) {
     // render
     return (
         <footer>
-            <input type="text" placeholder="Search..." onChange={handleInputSearch}/>
+            <input value={searchValue} type="text" placeholder="Search..." onChange={handleInputSearch}/>
             
             <button>
                 <ion-icon name="add-circle-outline"></ion-icon>
