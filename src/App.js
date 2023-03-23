@@ -21,7 +21,11 @@ export default function App() {
       {'title': "9. Feedback", 'isChecked': false},
   ]);
 
-  const [tasksDisplay, setTasksDisplay] = useState(tasks.slice());
+  const [tasksFilter, setTasksFilter] = useState("");
+
+
+  // actions
+  const tasksDisplay = tasks.filter(element => element.title.toUpperCase().includes(tasksFilter));
 
 
   // render
@@ -39,13 +43,13 @@ export default function App() {
                                         position={index}
                                         tasks={tasks}
                                         setTasks={setTasks}
-                                        setTasksDisplay={setTasksDisplay}
                                     />)}
       </main>
 
       <Footer
         tasks={tasks}
-        setTasksDisplay={setTasksDisplay}
+        setTasks={setTasks}
+        setTasksFilter={setTasksFilter}
       />
     </div>
   );

@@ -1,27 +1,33 @@
-import { useState } from 'react';
-
 export default function Footer(props) {
-    // state
-    const [searchValue, setSearchValue] = useState("");
-
     // actions
     const handleInputSearch = (event) => {
-        setSearchValue(event.target.value);
-        
         if (event.target.value.length >= 3) {
-            props.setTasksDisplay(props.tasks.filter(element => element.title.includes(event.target.value)));
+            props.setTasksFilter(event.target.value.toUpperCase());
 
         } else {
-            props.setTasksDisplay(props.tasks.slice());
+            props.setTasksFilter("");
         }
+    }
+
+    const handleAddTask = () => {
+        let taskName = "";
+
+        while (taskName === "") {
+            taskName = prompt("Donnez un nom à la tache");
+        }
+
+        let newTasks = props.tasks.slice();
+        newTasks.push({'title': taskName, 'isChecked': false});
+
+        props.setTasks(newTasks);
     }
 
     // render
     return (
         <footer>
-            <input value={searchValue} type="text" placeholder="Search..." onChange={handleInputSearch}/>
+            <input type="text" placeholder="Search..." onChange={handleInputSearch}/>
             
-            <button>
+            <button onClick={handleAddTask}>
                 <ion-icon name="add-circle-outline"></ion-icon>
             </button>
         </footer>
