@@ -41,7 +41,7 @@ export default function Task(props) {
                 <button onClick={() => handleArrowClick(1)}><ion-icon name="arrow-down-circle-outline"></ion-icon></button>
             </div>
 
-            <h3>{props.title}</h3>
+            <h3>{(props.position + 1) + ". " + props.title}</h3>
 
             <div id="right-container">
                 <input type="checkbox" onChange={() => handleTaskCheckChange()} checked={props.isChecked}/>

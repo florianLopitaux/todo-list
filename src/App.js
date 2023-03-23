@@ -11,15 +11,15 @@ export default function App() {
   // load local storage if is empty
   if (localStorage.getItem('tasks') == null) {
     localStorage.setItem('tasks', JSON.stringify([
-        {'title': "1. Idée", 'isChecked': true},
-        {'title': "2. Marché", 'isChecked': false},
-        {'title': "3. Wireframe", 'isChecked': true},
-        {'title': "4. Design", 'isChecked': true},
-        {'title': "5. Landingpage", 'isChecked': false},
-        {'title': "6. Développement", 'isChecked': false},
-        {'title': "7. Publish", 'isChecked': false},
-        {'title': "8. Pub", 'isChecked': true},
-        {'title': "9. Feedback", 'isChecked': false}
+        {'title': "Idée", 'isChecked': true},
+        {'title': "Marché", 'isChecked': false},
+        {'title': "Wireframe", 'isChecked': true},
+        {'title': "Design", 'isChecked': true},
+        {'title': "Landingpage", 'isChecked': false},
+        {'title': "Développement", 'isChecked': false},
+        {'title': "Publish", 'isChecked': false},
+        {'title': "Pub", 'isChecked': true},
+        {'title': "Feedback", 'isChecked': false}
     ]));
   }
 
