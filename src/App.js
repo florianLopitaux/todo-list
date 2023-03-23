@@ -30,6 +30,10 @@ export default function App() {
 
 
   // actions
+  const registerTasksMidification = (tasksModified) => {
+    localStorage.setItem('tasks', JSON.stringify(tasksModified));
+  }
+
   const tasksDisplay = tasks.filter(element => element.title.toUpperCase().includes(tasksFilter));
 
 
@@ -48,12 +52,14 @@ export default function App() {
                                         position={index}
                                         tasks={tasks}
                                         setTasks={setTasks}
+                                        registerTasksMidification={registerTasksMidification}
                                     />)}
       </main>
 
       <Footer
         tasks={tasks}
         setTasks={setTasks}
+        registerTasksMidification={registerTasksMidification}
         setTasksFilter={setTasksFilter}
       />
     </div>

@@ -37,6 +37,9 @@ body div#root {
   flex-direction: column;
 }
 
+#home-screen button {
+  cursor: pointer;
+}
 
 /*
 ██╗  ██╗███████╗ █████╗ ██████╗ ███████╗██████╗

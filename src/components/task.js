@@ -5,7 +5,7 @@ export default function Task(props) {
         newTasks[props.position].isChecked = !newTasks[props.position].isChecked;
   
         props.setTasks(newTasks);
-        localStorage.setItem('tasks', JSON.stringify(newTasks));
+        props.registerTasksMidification(newTasks);
     };
 
     const handleArrowClick = (moveVelocity) => {
@@ -21,7 +21,7 @@ export default function Task(props) {
         newTasks[props.position + moveVelocity] = tempTask;
 
         props.setTasks(newTasks);
-        localStorage.setItem('tasks', JSON.stringify(newTasks));
+        props.registerTasksMidification(newTasks);
     }
 
     const handleDeleteClick = () => {
@@ -29,23 +29,23 @@ export default function Task(props) {
         newTasks.splice(props.position, 1); // delete this task
         
         props.setTasks(newTasks);
-        localStorage.setItem('tasks', JSON.stringify(newTasks));
+        props.registerTasksMidification(newTasks);
     }
 
 
     // render
     return (
         <section className="task-item">
-            <div id="arrows-container">
-                <button onClick={() => handleArrowClick(-1)}><ion-icon name="arrow-up-circle-outline"></ion-icon></button>
-                <button onClick={() => handleArrowClick(1)}><ion-icon name="arrow-down-circle-outline"></ion-icon></button>
+            <div id="right-container">
+                <input type="checkbox" onChange={() => handleTaskCheckChange()} checked={props.isChecked}/>
+                <button onClick={() => handleDeleteClick()}><ion-icon name="trash-outline"></ion-icon></button>
             </div>
 
             <h3>{(props.position + 1) + ". " + props.title}</h3>
 
-            <div id="right-container">
-                <input type="checkbox" onChange={() => handleTaskCheckChange()} checked={props.isChecked}/>
-                <button onClick={() => handleDeleteClick()}><ion-icon name="trash-outline"></ion-icon></button>
+            <div id="arrows-container">
+                <button onClick={() => handleArrowClick(-1)}><ion-icon name="arrow-up-circle-outline"></ion-icon></button>
+                <button onClick={() => handleArrowClick(1)}><ion-icon name="arrow-down-circle-outline"></ion-icon></button>
             </div>
         </section>
     );

@@ -25,7 +25,7 @@ export default function Footer(props) {
         newTasks.push({'title': taskName, 'isChecked': false});
 
         props.setTasks(newTasks);
-        localStorage.setItem('tasks', JSON.stringify(newTasks));
+        props.registerTasksMidification(newTasks);
     }
 
     
