@@ -34,6 +34,20 @@ export default function App() {
     localStorage.setItem('tasks', JSON.stringify(tasksModified));
   }
 
+  const renderTask = (item, index) => {
+    return (
+      <Task
+        key={index}
+        title={item.title}
+        isChecked={item.isChecked}
+        position={index}
+        tasks={tasks}
+        setTasks={setTasks}
+        registerTasksMidification={registerTasksMidification}
+      />
+    );
+  }
+
   const tasksDisplay = tasks.filter(element => element.title.toUpperCase().includes(tasksFilter));
 
 
@@ -45,15 +59,7 @@ export default function App() {
       />
 
       <main>
-        {tasksDisplay.map((item, index) => <Task
-                                        key={index}
-                                        title={item.title}
-                                        isChecked={item.isChecked}
-                                        position={index}
-                                        tasks={tasks}
-                                        setTasks={setTasks}
-                                        registerTasksMidification={registerTasksMidification}
-                                    />)}
+        {tasksDisplay.length !== 0 ? tasksDisplay.map((item, index) => renderTask(item, index)) : <h4>Il n'y a aucune tâche avec "{tasksFilter}" dedans.</h4>}
       </main>
 
       <Footer
