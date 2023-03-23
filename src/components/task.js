@@ -10,7 +10,7 @@ export default function Task(props) {
 
     const handleArrowClick = (moveVelocity) => {
         if (props.position + moveVelocity >= props.tasks.length || props.position + moveVelocity < 0) {
-        return;
+            return;
         }
 
         let newTasks = props.tasks.slice();
@@ -20,6 +20,14 @@ export default function Task(props) {
         newTasks[props.position] = newTasks[props.position + moveVelocity];
         newTasks[props.position + moveVelocity] = tempTask;
 
+        props.setTasks(newTasks);
+        localStorage.setItem('tasks', JSON.stringify(newTasks));
+    }
+
+    const handleDeleteClick = () => {
+        let newTasks = props.tasks.slice();
+        newTasks.splice(props.position, 1); // delete this task
+        
         props.setTasks(newTasks);
         localStorage.setItem('tasks', JSON.stringify(newTasks));
     }
@@ -35,7 +43,10 @@ export default function Task(props) {
 
             <h3>{props.title}</h3>
 
-            <input type="checkbox" onChange={() => handleTaskCheckChange()} checked={props.isChecked}/>
+            <div id="right-container">
+                <input type="checkbox" onChange={() => handleTaskCheckChange()} checked={props.isChecked}/>
+                <button onClick={() => handleDeleteClick()}><ion-icon name="trash-outline"></ion-icon></button>
+            </div>
         </section>
     );
 }
