@@ -5,9 +5,9 @@ export default function Task(props) {
         newTasks[props.position].isChecked = !newTasks[props.position].isChecked;
   
         props.setTasks(newTasks);
+        localStorage.setItem('tasks', JSON.stringify(newTasks));
     };
 
-    // Task actions
     const handleArrowClick = (moveVelocity) => {
         if (props.position + moveVelocity >= props.tasks.length || props.position + moveVelocity < 0) {
         return;
@@ -21,8 +21,9 @@ export default function Task(props) {
         newTasks[props.position + moveVelocity] = tempTask;
 
         props.setTasks(newTasks);
-        props.setTasksDisplay(newTasks);
+        localStorage.setItem('tasks', JSON.stringify(newTasks));
     }
+
 
     // render
     return (

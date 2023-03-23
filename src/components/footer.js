@@ -16,12 +16,19 @@ export default function Footer(props) {
             taskName = prompt("Donnez un nom à la tache");
         }
 
+        // if cancel button is clicked
+        if (taskName == null) {
+            return;
+        }
+
         let newTasks = props.tasks.slice();
         newTasks.push({'title': taskName, 'isChecked': false});
 
         props.setTasks(newTasks);
+        localStorage.setItem('tasks', JSON.stringify(newTasks));
     }
 
+    
     // render
     return (
         <footer>

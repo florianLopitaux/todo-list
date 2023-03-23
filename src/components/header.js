@@ -1,6 +1,4 @@
 export default function Header(props) {
-    //state
-
     // actions
     const computeTaskValidate = () => {
         let taskValidateCount = 0;
@@ -13,6 +11,7 @@ export default function Header(props) {
 
         return taskValidateCount;
     }
+
 
     // render
     return (
